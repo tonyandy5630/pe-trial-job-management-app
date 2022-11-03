@@ -10,6 +10,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\JobManagementLibrary\JobManagementLibrary.csproj" />
+	  <Content Update="appsettings.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
   </ItemGroup>
 
 </Project>
