@@ -32,7 +32,7 @@ namespace JobManagementLibrary.DataAccess
            .AddJsonFile("appsettings.json")
            .Build();
                 Debug.WriteLine(Directory.GetCurrentDirectory());
-                string connectionString = configuration.GetConnectionString("Connection");
+                string connectionString = configuration.GetConnectionString("MyStoreDB");
                 optionsBuilder.UseSqlServer(connectionString);
 
             }
