@@ -52,23 +52,26 @@ namespace JobManagementWinApp
             {
                 int postingId = jobPostingRepo.GetJobPostingIdByTitle(comboPostingTitle.Text);
                 string fullname = txtCandidateName.Text;
-                if (fullname.Length < 10 && fullname.Length > 18)
+
+                if (fullname.Length < 10 || fullname.Length > 18)
                 {
-                    if(HasSpecialChars(fullname))
-                    {
-                        throw new Exception("Full name cannot contains special character");
-                    }
+                    throw new Exception("Full name must longer that 10 and shorter tab 18");
                 }
-                    CandidateProfile addCandidate = new CandidateProfile
+
+                if (HasSpecialChars(fullname))
+                {
+                    throw new Exception("Full name cannot contains special character");
+                }
+
+                CandidateProfile addCandidate = new CandidateProfile
                 {
                     CandidateId = int.Parse(txtCandidateId.Text),
                     Fullname = txtCandidateName.Text,
-                    Birthday = new DateTime(dtBirthday.Value.Year,dtBirthday.Value.Month,dtBirthday.Value.Day),
+                    Birthday = new DateTime(dtBirthday.Value.Year, dtBirthday.Value.Month, dtBirthday.Value.Day),
                     ProfileShortDescription = txtProfileDesc.Text,
                     ProfileUrl = txtURL.Text,
                     PostingId = postingId,
                 };
-                //MessageBox.Show(new DateTime(dtBirthday.Value.Year,dtBirthday.Value.Month,dtBirthday.Value.Day).ToString());
 
                 bool addSuccess = candidateProfileRepository.AddNewCandidate(addCandidate);
                 if (addSuccess)
