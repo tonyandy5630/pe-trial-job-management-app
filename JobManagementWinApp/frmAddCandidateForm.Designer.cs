@@ -41,6 +41,8 @@
             this.btnAddCandidate = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtCandidateId = new System.Windows.Forms.TextBox();
+            this.cbMale = new System.Windows.Forms.CheckBox();
+            this.cbFemale = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -134,7 +136,7 @@
             // 
             // btnAddCandidate
             // 
-            this.btnAddCandidate.Location = new System.Drawing.Point(152, 366);
+            this.btnAddCandidate.Location = new System.Drawing.Point(155, 387);
             this.btnAddCandidate.Name = "btnAddCandidate";
             this.btnAddCandidate.Size = new System.Drawing.Size(94, 29);
             this.btnAddCandidate.TabIndex = 11;
@@ -158,12 +160,34 @@
             this.txtCandidateId.Size = new System.Drawing.Size(125, 27);
             this.txtCandidateId.TabIndex = 13;
             // 
+            // cbMale
+            // 
+            this.cbMale.AutoSize = true;
+            this.cbMale.Location = new System.Drawing.Point(48, 327);
+            this.cbMale.Name = "cbMale";
+            this.cbMale.Size = new System.Drawing.Size(63, 24);
+            this.cbMale.TabIndex = 14;
+            this.cbMale.Text = "Nam";
+            this.cbMale.UseVisualStyleBackColor = true;
+            // 
+            // cbFemale
+            // 
+            this.cbFemale.AutoSize = true;
+            this.cbFemale.Location = new System.Drawing.Point(223, 327);
+            this.cbFemale.Name = "cbFemale";
+            this.cbFemale.Size = new System.Drawing.Size(51, 24);
+            this.cbFemale.TabIndex = 14;
+            this.cbFemale.Text = "Nữ";
+            this.cbFemale.UseVisualStyleBackColor = true;
+            // 
             // frmAddCandidateForm
             // 
             this.AcceptButton = this.btnAddCandidate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(483, 450);
+            this.Controls.Add(this.cbFemale);
+            this.Controls.Add(this.cbMale);
             this.Controls.Add(this.txtCandidateId);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnAddCandidate);
@@ -200,5 +224,7 @@
         private Button btnAddCandidate;
         private Label label6;
         private TextBox txtCandidateId;
+        private CheckBox cbMale;
+        private CheckBox cbFemale;
     }
 }
