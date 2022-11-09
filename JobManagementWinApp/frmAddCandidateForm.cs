@@ -51,16 +51,24 @@ namespace JobManagementWinApp
             try
             {
                 int postingId = jobPostingRepo.GetJobPostingIdByTitle(comboPostingTitle.Text);
-
-                CandidateProfile addCandidate = new CandidateProfile
+                string fullname = txtCandidateName.Text;
+                if (fullname.Length < 10 && fullname.Length > 18)
+                {
+                    if(HasSpecialChars(fullname))
+                    {
+                        throw new Exception("Full name cannot contains special character");
+                    }
+                }
+                    CandidateProfile addCandidate = new CandidateProfile
                 {
                     CandidateId = int.Parse(txtCandidateId.Text),
                     Fullname = txtCandidateName.Text,
-                    Birthday = dtBirthday.Value,
+                    Birthday = new DateTime(dtBirthday.Value.Year,dtBirthday.Value.Month,dtBirthday.Value.Day),
                     ProfileShortDescription = txtProfileDesc.Text,
                     ProfileUrl = txtURL.Text,
                     PostingId = postingId,
                 };
+                //MessageBox.Show(new DateTime(dtBirthday.Value.Year,dtBirthday.Value.Month,dtBirthday.Value.Day).ToString());
 
                 bool addSuccess = candidateProfileRepository.AddNewCandidate(addCandidate);
                 if (addSuccess)
@@ -76,13 +84,23 @@ namespace JobManagementWinApp
 
         }
 
+        private bool HasSpecialChars(string toCheck)
+        {
+            return toCheck.Any(ch => !char.IsLetterOrDigit(ch));
+        }
+
         private void Reset()
         {
             txtCandidateId.Text = null;
             txtCandidateName.Text = null;
-            dtBirthday.Value = new DateTime();
+            dtBirthday.Value = DateTime.Now;
             txtProfileDesc.Text = null;
             txtURL.Text = null;
+        }
+
+        private void dtBirthday_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

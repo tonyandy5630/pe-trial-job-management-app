@@ -31,7 +31,6 @@ namespace JobManagementLibrary.DataAccess
            .SetBasePath(Directory.GetCurrentDirectory())
            .AddJsonFile("appsettings.json")
            .Build();
-                Debug.WriteLine(Directory.GetCurrentDirectory());
                 string connectionString = configuration.GetConnectionString("MyStoreDB");
                 optionsBuilder.UseSqlServer(connectionString);
 

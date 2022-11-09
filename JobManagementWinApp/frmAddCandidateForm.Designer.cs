@@ -122,10 +122,15 @@
             // 
             // dtBirthday
             // 
+            this.dtBirthday.CustomFormat = "yyyy-mm-dd";
             this.dtBirthday.Location = new System.Drawing.Point(223, 130);
+            this.dtBirthday.MaxDate = new System.DateTime(2022, 12, 9, 0, 0, 0, 0);
+            this.dtBirthday.MinDate = new System.DateTime(2022, 5, 1, 0, 0, 0, 0);
             this.dtBirthday.Name = "dtBirthday";
             this.dtBirthday.Size = new System.Drawing.Size(246, 27);
             this.dtBirthday.TabIndex = 10;
+            this.dtBirthday.Value = new System.DateTime(2022, 11, 10, 0, 0, 0, 0);
+            this.dtBirthday.ValueChanged += new System.EventHandler(this.dtBirthday_ValueChanged);
             // 
             // btnAddCandidate
             // 
